@@ -9,4 +9,18 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_fund_management">FundManagement</string>
+    <string name="deposit">Deposit</string>
+    <string name="instruction">Instruction</string>
+    <string name="amount">Amount</string>
+    <string name="tenure">Tenure</string>
+    <string name="interest_withdrawal">Interest Withdrawal</string>
+    <string name="encashment">Encashment</string>
+    <string name="pending">Pending</string>
+    <string name="submit">Submit</string>
+    <string name="renewal_with_principal_and_interest">Renewal With Principal and Interest</string>
+    <string name="auto_renewal_after_period_months">Auto Renewal After (Period) Months</string>
+    <string name="rate">Rate (%)</string>
+    <string name="deposit_amount">Deposit Amount</string>
+    <string name="create_new_fixed_deposit_receipt_fdr">Create New Fixed Deposit Receipt (FDR)</string>
 </resources>

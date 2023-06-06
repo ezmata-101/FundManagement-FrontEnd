@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/deposit_card_account_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:text="Account Title"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            android:layout_margin="4dp">
+
+            <TableRow android:padding="4sp">
+                <TextView
+                    android:text="Account NO"
+                    android:textSize="16sp"
+                    android:padding="3dip"
+                    android:gravity="left|center"/>
+                <TextView
+                    android:id="@+id/deposit_card_account_no"
+                    android:text="123456789"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="left|center"
+                    android:layout_marginStart="24dp"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow android:padding="4sp">
+                <TextView
+                    android:text="@string/amount"
+                    android:textSize="16sp"
+                    android:padding="3dip"
+                    android:gravity="left|center"/>
+                <TextView
+                    android:id="@+id/deposit_card_amount"
+                    android:text="123456789"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="left|center"
+                    android:layout_marginStart="24dp"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow android:padding="4sp">
+                <TextView
+                    android:text="@string/tenure"
+                    android:textSize="16sp"
+                    android:padding="3dip"
+                    android:gravity="left|center"/>
+                <TextView
+                    android:id="@+id/deposit_card_tenure"
+                    android:text="123456789"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="left|center"
+                    android:layout_marginStart="24dp"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow android:padding="4sp">
+                <TextView
+                    android:text="Branch"
+                    android:textSize="16sp"
+                    android:padding="3dip"
+                    android:gravity="left|center"/>
+                <TextView
+                    android:id="@+id/deposit_card_branch"
+                    android:text="123456789"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="left|center"
+                    android:layout_marginStart="24dp"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow android:padding="4sp">
+                <TextView
+                    android:text="Maturity Date"
+                    android:textSize="16sp"
+                    android:padding="3dip"
+                    android:gravity="left|center"/>
+                <TextView
+                    android:id="@+id/deposit_card_maturity"
+                    android:text="123456789"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="left|center"
+                    android:layout_marginStart="24dp"
+                    android:padding="3dip" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
