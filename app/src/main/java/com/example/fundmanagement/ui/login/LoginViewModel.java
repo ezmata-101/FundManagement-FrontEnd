@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import android.util.Log;
 import android.util.Patterns;
 
 import com.example.fundmanagement.data.LoginRepository;
@@ -31,14 +32,16 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+//        Result<LoggedInUser> result = loginRepository.login(username, password);
+        loginRepository.login(username, password, loginResult);
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
-        } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
-        }
+//        if (result instanceof Result.Success) {
+//            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+//            Log.d("LoginViewModel", "login: " + data.getDisplayName());
+//            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
+//        } else {
+//            loginResult.setValue(new LoginResult(R.string.login_failed));
+//        }
     }
 
     public void loginDataChanged(String username, String password) {

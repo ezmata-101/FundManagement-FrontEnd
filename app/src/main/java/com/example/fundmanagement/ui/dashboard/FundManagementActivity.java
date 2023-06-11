@@ -10,8 +10,6 @@ import android.widget.Toast;
 import com.example.fundmanagement.R;
 
 public class FundManagementActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +18,7 @@ public class FundManagementActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.product_list);
         ProductListAdapter adapter = new ProductListAdapter();
         recyclerView.setAdapter(adapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this){
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        };
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
 

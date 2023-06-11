@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static Retrofit retrofit;
-    private static final String BASE_URL = "http://192.168.43.205/fmtasklogin/api/auth/login";
-    public static Retrofit getRetrofitInstance(){
+    private static final String BASE_URL = "http://192.168.0.106/";
+    public static Retrofit getRetrofitAuthInstance(){
         if(retrofit == null){
             retrofit = new retrofit2.Retrofit.Builder()
                     .baseUrl(BASE_URL)

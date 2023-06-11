@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -23,11 +25,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fundmanagement.R;
+import com.example.fundmanagement.ui.dashboard.FundManagementActivity;
 import com.example.fundmanagement.ui.login.LoginViewModel;
 import com.example.fundmanagement.ui.login.LoginViewModelFactory;
 import com.example.fundmanagement.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
@@ -44,6 +48,11 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
+
+        usernameEditText.setText("abc@abc.com");
+        passwordEditText.setText("abc@abc.com");
+
+
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
 
@@ -67,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
                 if (loginResult == null) {
+                    Log.d(TAG, "onChanged: loginResult is null");
                     return;
                 }
                 loadingProgressBar.setVisibility(View.GONE);
@@ -74,12 +84,18 @@ public class LoginActivity extends AppCompatActivity {
                     showLoginFailed(loginResult.getError());
                 }
                 if (loginResult.getSuccess() != null) {
+                    Log.d(TAG, "onChanged: login success");
                     updateUiWithUser(loginResult.getSuccess());
-                }
-                setResult(Activity.RESULT_OK);
 
-                //Complete and destroy login activity once successful
-                finish();
+
+//                  // go to FundManagementActivity
+                    Intent intent = new Intent(LoginActivity.this, FundManagementActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Log.d(TAG, "onChanged: login failed");
+                    Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

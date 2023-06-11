@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,15 @@ import com.example.fundmanagement.R;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ProductListAdapter extends RecyclerView.Adapter<ProductItem>{
+class ProductItemViewHolder extends RecyclerView.ViewHolder {
+    TextView productName;
+    public ProductItemViewHolder(@NonNull View itemView) {
+        super(itemView);
+        productName = itemView.findViewById(R.id.product_name_tv);
+    }
+}
+
+public class ProductListAdapter extends RecyclerView.Adapter<ProductItemViewHolder>{
     private final List<String> DEPOSITS = new LinkedList<>(
             List.of(
                     "Term Deposits",
@@ -27,16 +36,16 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductItem>{
     );
 
     @Override
-    public ProductItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View productView = inflater.inflate(R.layout.product_item_view, parent, false);
-        ProductItem productItem = new ProductItem(productView);
+        ProductItemViewHolder productItem = new ProductItemViewHolder(productView);
         return productItem;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductItem holder, int position) {
+    public void onBindViewHolder(@NonNull ProductItemViewHolder holder, int position) {
         holder.productName.setText(DEPOSITS.get(position));
         final int pos = position;
         holder.productName.setOnClickListener(new View.OnClickListener() {

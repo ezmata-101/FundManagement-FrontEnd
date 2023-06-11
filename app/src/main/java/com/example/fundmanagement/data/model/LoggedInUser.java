@@ -20,4 +20,9 @@ public class LoggedInUser {
     public String getDisplayName() {
         return displayName;
     }
+
+    @Override
+    public String toString(){
+        return "Username: " + this.userId + "\nDisplay Name: " + this.displayName;
+    }
 }

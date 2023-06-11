@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.depositaccounts.DepositAccounts">
+    tools:context=".ui.encashment.EncashmentActivity">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/history_accounts_rv">
+        android:id="@+id/encashment_accounts_rv">
 
     </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
