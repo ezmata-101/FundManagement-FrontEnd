@@ -4,20 +4,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Product {
     @SerializedName("id")
-    private int id;
+    private String id;
     @SerializedName("name")
     private String name;
+    @SerializedName("status")
+    private String status;
 
-    public Product(int id, String name) {
+    public Product(String id, String name, String status) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

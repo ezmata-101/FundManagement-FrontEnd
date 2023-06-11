@@ -1,7 +1,7 @@
 package com.example.fundmanagement.data;
 
 public class StoreAndRetrieveToken {
-    private static String tk;
+    private static String tk = null;
     private static StoreAndRetrieveToken instance = new StoreAndRetrieveToken();
 
     private StoreAndRetrieveToken() {}
@@ -11,6 +11,6 @@ public class StoreAndRetrieveToken {
         tk = token;
     }
     public static String getToken() {
-        return tk;
+        return "Bearer " + tk;
     }
 }

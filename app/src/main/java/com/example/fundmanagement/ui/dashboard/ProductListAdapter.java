@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fundmanagement.R;
+import com.example.fundmanagement.data.model.Product;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,16 +25,7 @@ class ProductItemViewHolder extends RecyclerView.ViewHolder {
 }
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductItemViewHolder>{
-    private final List<String> DEPOSITS = new LinkedList<>(
-            List.of(
-                    "Term Deposits",
-                    "Fixed Deposit Receipt (FDR)",
-                    "Dwigun Sanchaya Prakalpo",
-                    "Monthly Profit Based Fixed Deposit (MFD)",
-                    "Monthly Profit Based Small Deposit (MPSD)",
-                    "Target Based Small Deposit (TBSD)"
-            )
-    );
+    private static List<String> DEPOSITS = new LinkedList<>();
 
     @Override
     public ProductItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -59,5 +51,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductItemViewHold
     @Override
     public int getItemCount() {
         return DEPOSITS.size();
+    }
+
+    public void setDEPOSITS(List<Product> products) {
+        DEPOSITS.clear();
+        for(Product product : products) {
+            DEPOSITS.add(product.getName());
+        }
     }
 }

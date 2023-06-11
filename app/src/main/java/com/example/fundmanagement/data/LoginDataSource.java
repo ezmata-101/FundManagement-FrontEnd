@@ -7,9 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.fundmanagement.data.Retrofit.LoginReq;
 import com.example.fundmanagement.data.Retrofit.LoginResp;
 import com.example.fundmanagement.data.Retrofit.RetrofitClient;
-import com.example.fundmanagement.data.Retrofit.RetrofitPostData;
+import com.example.fundmanagement.data.Retrofit.RetrofitAPI;
 import com.example.fundmanagement.data.model.LoggedInUser;
-import com.example.fundmanagement.interfaces.DataSourceConsumer;
 import com.example.fundmanagement.ui.login.LoggedInUserView;
 import com.example.fundmanagement.ui.login.LoginResult;
 
@@ -35,11 +34,11 @@ public class LoginDataSource {
             jsonObject.put("password", password);
             String json = jsonObject.toString();
 
-            Retrofit rf = RetrofitClient.getRetrofitAuthInstance();
-            RetrofitPostData rpd = rf.create(RetrofitPostData.class);
+            Retrofit rf = RetrofitClient.getInstance();
+            RetrofitAPI rpd = rf.create(RetrofitAPI.class);
 
             LoginReq loginReq = new LoginReq(username, password);
-            Call<LoginResp> call = rpd.createPost(loginReq);
+            Call<LoginResp> call = rpd.login(loginReq);
 
 
             call.enqueue(new Callback<LoginResp>() {
